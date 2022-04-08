@@ -16,9 +16,9 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    public function show($id) {
-        $post = Post::where('status', Post::STATUS_ACTIVE)->findOrFail($id);
-        $recentPosts = Post::where('id', '<>', $id)
+    public function show($slug) {
+        $post = Post::where('status', Post::STATUS_ACTIVE)->where('slug', $slug)->firstOrFail();
+        $recentPosts = Post::where('id', '<>', $post->id)
             ->where('status', Post::STATUS_ACTIVE)
             ->where('category', $post->category)
             ->inRandomOrder()

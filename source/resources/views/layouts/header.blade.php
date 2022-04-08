@@ -3,14 +3,14 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4 col-sm-5">
-                <p>Xin Chào Tới Phòng Khám Đa Khoa Y Cao Hoa Hồng</p>
+            <div class="col-md-6 col-sm-6">
+                <p>Đơn Vị Khám Và Tiếp Nhận Bảo Hiểm Y Tế Thông Tuyến</p>
             </div>
 
-            <div class="col-md-8 col-sm-7 text-align-right">
-                <span class="phone-icon"><i class="fa fa-phone"></i> 010-060-0160</span>
-                <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 6:00 AM - 10:00 PM (Mon-Fri)</span>
-                <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@company.com</a></span>
+            <div class="col-md-6 col-sm-6 text-align-right">
+                <span class="phone-icon"><i class="fa fa-phone"></i> <a href="tel:0788688333">0788.688.333</a> </span>
+                <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 7:00 - 20:00 (Tất Cả Các Ngày Trong Tuần)</span>
+{{--                <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@company.com</a></span>--}}
             </div>
 
         </div>
@@ -29,7 +29,7 @@
                 <span class="icon icon-bar"></span>
             </button>
 
-            <a href="{{ route('home') }}" class="navbar-brand">Phòng Khám Đa Khoa Y Cao Hoa Hồng</a>
+            <a href="{{ route('home') }}" class="navbar-brand">PHÒNG KHÁM ĐA KHOA Y CAO HOA HỒNG</a>
         </div>
 
         <!-- MENU LINKS -->

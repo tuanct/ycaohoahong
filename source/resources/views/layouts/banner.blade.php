@@ -7,7 +7,7 @@
                         <div class="caption">
                             <div class="col-md-offset-1 col-md-10">
                                 <h1>{{ $banner->title }}</h1>
-                                <a href="{{ route('posts.show', $banner->id) }}" class="section-btn btn btn-default smoothScroll">Xem Chi Tiết</a>
+                                <a href="{{ route('posts.show', $banner->slug) }}" class="section-btn btn btn-default smoothScroll">Xem Chi Tiết</a>
                             </div>
                         </div>
                     </div>

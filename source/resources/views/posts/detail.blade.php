@@ -37,7 +37,7 @@
                                 @foreach($recentPosts as $item)
                                     <div class="media">
                                         <div class="media-object pull-left">
-                                            <a href="{{ route('posts.show', $item->id) }}">
+                                            <a href="{{ route('posts.show', $item->slug) }}">
                                                 <div style="overflow: hidden; width: 80px; height: 80px;">
                                                     <img src="{{ $item->thumbnail }}" class="img-responsive" alt="">
                                                 </div>
@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading"><a
-                                                    href="{{ route('posts.show', $item->id) }}">{{ $item->title }}</a>
+                                                    href="{{ route('posts.show', $item->slug) }}">{{ $item->title }}</a>
                                             </h4>
                                         </div>
                                     </div>
@@ -80,3 +80,8 @@
         </div>
     </section>
 @endsection
+
+@section('fb_title', $post->title)
+@section('fb_image', $post->thumbnail)
+@section('fb_description', $post->content)
+@section('fb_url', route('posts.show', $post->slug))

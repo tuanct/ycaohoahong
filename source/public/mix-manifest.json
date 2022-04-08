@@ -2,6 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/css/main.css": "/css/main.css",
     "/css/app.css": "/css/app.css",
+    "/images/.DS_Store": "/images/.DS_Store",
+    "/images/logo-svg.svg": "/images/logo-svg.svg",
     "/images/logo.png": "/images/logo.png",
     "/fonts/FontAwesome.otf": "/fonts/FontAwesome.otf",
     "/fonts/fontawesome-webfont.eot": "/fonts/fontawesome-webfont.eot",
@@ -16,5 +18,7 @@
     "/js/jquery.sticky.js": "/js/jquery.sticky.js",
     "/js/owl.carousel.min.js": "/js/owl.carousel.min.js",
     "/js/smoothscroll.js": "/js/smoothscroll.js",
-    "/js/wow.min.js": "/js/wow.min.js"
+    "/js/wow.min.js": "/js/wow.min.js",
+    "/images/Wo.png": "/images/Wo.png",
+    "/images/phone-call.png": "/images/phone-call.png"
 }

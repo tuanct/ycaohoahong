@@ -70,11 +70,11 @@
         </div>
         <nav :class="{'block': open, 'hidden': !open}"
              class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-            <x-admin-link :href="route('admin.posts.index', ['category' => 'post'])" :active="request()->category === 'post'">Posts
+            <x-admin-link :href="route('admin.posts.index', ['category' => 'post'])" :active="request()->category === 'post'">Kiến Thức Y Khoa
             </x-admin-link>
             <x-admin-link :href="route('admin.posts.index', ['category' => 'banner'])" :active="request()->category === 'banner'">Banners
             </x-admin-link>
-            <x-admin-link :href="route('admin.posts.index', ['category' => 'news'])" :active="request()->category === 'news'">News
+            <x-admin-link :href="route('admin.posts.index', ['category' => 'news'])" :active="request()->category === 'news'">Tin Tức
             </x-admin-link>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"

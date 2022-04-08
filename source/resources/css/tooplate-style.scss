@@ -10,7 +10,6 @@ http://www.tooplate.com/view/2098-health
 
 body {
     background: #ffffff;
-    /*font-family: 'Poppins', sans-serif;*/
     overflow-x: hidden;
 }
 
@@ -239,30 +238,31 @@ a:hover, a:active, a:focus {
 }
 
 .spinner:before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 45px;
-    height: 45px;
-    margin-top: -10px;
-    margin-left: -10px;
-    border-radius: 50%;
-    border: 1px solid #575757;
-    border-top-color: #ffffff;
-    animation: spinner .9s linear infinite;
+    content: "";
+    display: block;
+    height: 125px;
+    width: 125px;
+    background-size: 125px 125px;
+    background-image: url(../images/logo-svg.svg);
+    background-repeat: no-repeat;
 }
-
-@-webkit-@keyframes spinner {
-    to {
-        transform: rotate(360deg);
-    }
-}
+//
+//@-webkit-@keyframes spinner {
+//    from {
+//        transform: rotate(0deg);
+//    }
+//
+//    to {
+//        transform: rotate(359deg);
+//    }
+//}
 
 @keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
     to {
-        transform: rotate(360deg);
+        transform: rotate(359deg);
     }
 }
 
@@ -363,7 +363,7 @@ header span i {
 }
 
 .navbar-default .navbar-nav > li a:hover {
-    color: #393939 !important;
+    color: #4C9B1A !important;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -462,25 +462,13 @@ header span i {
     height: 650px;
 }
 
-.slider .item-first {
-    background-image: url(../images/slider1.jpg);
-}
-
-.slider .item-second {
-    background-image: url(../images/slider2.jpg);
-}
-
-.slider .item-third {
-    background-image: url(../images/slider3.jpg);
-}
-
 
 /*---------------------------------------
     ABOUT
 -----------------------------------------*/
 
 #about {
-    background: url('../images/about-bg.jpg') no-repeat top center;
+    //background: url(../images/about-bg.jpg) no-repeat top center;
     background-size: cover;
     padding-top: 150px;
     padding-bottom: 150px;
@@ -830,7 +818,7 @@ footer a:hover {
 }
 
 .contact-info .fa {
-    background: #393939;
+    background: #4C9B1A;
     border-radius: 100%;
     color: #ffffff;
     font-size: 15px;
@@ -902,11 +890,11 @@ footer a:hover {
 }
 
 .angle-up-btn a {
-    background: #ffffff;
+    background: #4C9B1A;
     border: 1px solid #f2f2f2;
     border-radius: 3px;
     font-size: 20px;
-    color: #393939;
+    color: #FFFFFF;
     display: inline-block;
     text-align: center;
     width: 40px;
@@ -1075,5 +1063,80 @@ footer a:hover {
         letter-spacing: 1px;
     }
 
+    .navbar-brand {
+        font-size: 14px;
+    }
+
 }
 
+.zalo-chat-widget {
+    bottom: 100px !important;
+    right: 25px !important;
+}
+
+//.more_action_right {
+//    position: fixed;
+//    bottom: 130px;
+//    right: 23px;
+//    z-index: 1000;
+//
+//    ul {
+//        padding: 0px;
+//        margin: 0px;
+//        display: flex;
+//        flex-direction: row-reverse;
+//
+//        li {
+//            position: relative;
+//            z-index: 1000;
+//
+//            a {
+//                display: flex;
+//                width: 48px;
+//                height: 48px;
+//                z-index: 1000;
+//                justify-content: center;
+//                align-items: center;
+//                :before {
+//                    content: "";
+//                    animation: pulsate 1s ease-out;
+//                    animation-iteration-count: infinite;
+//                    opacity: 0.0;
+//                    border-radius: 50%;
+//                    position: absolute;
+//                    text-align: center;
+//                    margin: auto;
+//                    z-index: 999;
+//                }
+//                img {
+//                    animation: rotate-in-2-cw .6s cubic-bezier(.25,.46,.45,.94) infinite alternate both;
+//                }
+//            }
+//            img {
+//                width: 100%;
+//            }
+//        }
+//    }
+//
+//}
+.more_action_right{position: fixed; bottom: 150px; right: 23px; z-index: 1000;}
+.more_action_right ul {list-style:none; padding: 0px; margin: 0px; display: flex; flex-direction: row-reverse;}
+.more_action_right ul li{width: 48px; height: 48px; background: #fff; border-radius: 50px; box-shadow: 0px 2px 8px rgba(0,0,0,0.2); margin-bottom: 16px; margin-right: 8px;}
+.more_action_right ul li img{width: 100%;}
+
+@-webkit-keyframes rotate-in-2-cw{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);opacity:0}100%{-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotate-in-2-cw{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);opacity:0}100%{-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}
+.more_action_right ul li{position: relative; z-index: 1000;}
+.more_action_right ul li a{    display: flex;width: 48px;height: 48px;z-index: 1000;justify-content: center;align-items: center;}
+.more_action_right ul li a img{-webkit-animation:rotate-in-2-cw .6s cubic-bezier(.25,.46,.45,.94) infinite alternate both;animation:rotate-in-2-cw .6s cubic-bezier(.25,.46,.45,.94) infinite alternate both;}
+.more_action_right ul li a::before{
+    content: "";
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.0;
+
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    margin:auto;
+    z-index: 999;
+}

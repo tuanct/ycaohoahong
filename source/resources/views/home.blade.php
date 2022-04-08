@@ -9,7 +9,7 @@
                 <div class="col-md-12 col-sm-12">
                     <!-- SECTION TITLE -->
                     <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                        <h2>Tin Nổi Bật</h2> <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_NEWS]) }}">Xem Thêm</a>
+                        <h2>Tin Nổi Bật</h2> <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_NEWS]) }}"><b>Xem Thêm</b></a>
                     </div>
                 </div>
 
@@ -18,12 +18,12 @@
                     <div class="col-md-4 col-sm-6">
                         <!-- NEWS THUMB -->
                         <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
-                            <a href="{{ route('posts.show', $item->id) }}">
+                            <a href="{{ route('posts.show', $item->slug) }}">
                                 <img src="{{ asset($item->thumbnail) }}" class="img-responsive" alt="">
                             </a>
                             <div class="news-info">
                                 <span>{{ $item->created_at }}</span>
-                                <h3><a href="news-detail.html">{{ $item->title }}</a></h3>
+                                <h3><a href="{{ route('posts.show', $item->slug) }}">{{ $item->title }}</a></h3>
                                 {{--                            <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>--}}
                                 {{--                            <div class="author">--}}
                                 {{--                                <img src="images/author-image.jpg" class="img-responsive" alt="">--}}
@@ -49,14 +49,14 @@
                 <div class="col-md-12 col-sm-12">
                     <!-- SECTION TITLE -->
                     <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                        <h2>Kiến Thức Y Khoa</h2> <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_POST]) }}">Xem Thêm</a>
+                        <h2>Kiến Thức Y Khoa</h2> <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_POST]) }}"><b>Xem Thêm</b></a>
                     </div>
                 </div>
 
                 @foreach($posts as $item)
 
                     <div class="col-md-4 col-sm-6">
-                        <a href="{{ route('posts.show', $item->id) }}">
+                        <a href="{{ route('posts.show', $item->slug) }}">
                             <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
                                 <img src="{{ asset($item->thumbnail) }}" class="img-responsive" alt="">
 
@@ -95,10 +95,15 @@
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous"
-                            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=470709677209571&autoLogAppEvents=1"
-                            nonce="uYq3KHDo"></script>
+                    <div class="fb-page" data-href="https://www.facebook.com/phongkhamycao.hoahong" data-tabs="timeline"
+                         data-width="" data-height="200px" data-small-header="false" data-adapt-container-width="true"
+                         data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/phongkhamycao.hoahong" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/phongkhamycao.hoahong">Phòng Khám Đa Khoa Y Cao Hoa
+                                Hồng</a></blockquote>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
                     <div class="fb-page"
                          data-href="https://www.facebook.com/Da-Li&#x1ec5;u-Th&#x1ea9;m-M&#x1ef9;-Hoa-H&#x1ed3;ng-450429172455593/"
                          data-tabs="timeline" data-width="" data-height="200px" data-small-header="false"
@@ -111,20 +116,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous"
-                            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=470709677209571&autoLogAppEvents=1"
-                            nonce="uYq3KHDo"></script>
-                    <div class="fb-page" data-href="https://www.facebook.com/phongkhamycao.hoahong" data-tabs="timeline"
-                         data-width="" data-height="200px" data-small-header="false" data-adapt-container-width="true"
-                         data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/phongkhamycao.hoahong" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/phongkhamycao.hoahong">Phòng Khám Đa Khoa Y Cao Hoa
-                                Hồng</a></blockquote>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/kldF8yslgVM"
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/WcKe9hkYTxE"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>

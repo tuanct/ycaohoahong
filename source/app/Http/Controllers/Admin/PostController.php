@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Posts\CreatePostRequest;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -59,7 +61,8 @@ class PostController extends Controller
             'thumbnail' => $path,
             'content' => $request->get('content'),
             'status' => $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE,
-            'category' => $category
+            'category' => $category,
+            'slug' => Str::slug($request->get('title')) . Carbon::now()->timestamp
         ]);
         if (!$post) {
             return redirect()->back()->withInput()->withErrors(__('Fail'));
@@ -109,6 +112,7 @@ class PostController extends Controller
         $post->content = $request->get('content');
         $post->user_id = Auth::id();
         $post->status = $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE;
+        $post->slug = Str::slug($request->get('title')) . Carbon::now()->timestamp;
         if (!$post->save()) {
             return redirect()->back()->withInput()->withErrors(__('Fail'));
         }
@@ -129,7 +133,7 @@ class PostController extends Controller
 
         $filename = str_replace('/storage/uploads/', '', $post->thumbnail);
         // remove old image
-        unlink(storage_path('app/public/uploads/'.$filename));
+        removeFileUpload($post->thumbnail);
         return redirect()->route('admin.posts.index', ['category' => $category])->with('success', 'Success');
     }
 }
