@@ -328,6 +328,14 @@ header span i {
 .navbar-default .navbar-brand {
     color: #393939;
     font-weight: 500;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
 }
 
 .navbar-default .navbar-brand .fa {
@@ -382,6 +390,7 @@ header span i {
 .navbar-default .navbar-toggle {
     border: none;
     padding-top: 10px;
+    margin-right: 0;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -470,8 +479,7 @@ header span i {
 #about {
     //background: url(../images/about-bg.jpg) no-repeat top center;
     background-size: cover;
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding: 50px 10px;
 }
 
 #social {

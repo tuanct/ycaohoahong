@@ -96,7 +96,15 @@
                         {{--                            | Design: <a href="http://www.tooplate.com" target="_parent">Tooplate</a></p>--}}
                     </div>
                 </div>
-                <div class="col-md-offset-6 col-sm-offset-6 col-md-2 col-sm-2 text-align-center">
+                <div class="col-md-6 col-sm-6">
+                    <div class="footer-link">
+                        <a href="{{ route('about') }}">Giới Thiệu</a>
+                        <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_POST]) }}">Kiến Thức Y Khoa</a>
+                        <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_NEWS]) }}">Tin Tức</a>
+                        <a href="{{ route('contact') }}">Liên Hệ</a>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 text-align-center">
                     <div class="angle-up-btn">
                         <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"><i
                                 class="fa fa-angle-up"></i></a>

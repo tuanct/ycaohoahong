@@ -22,7 +22,7 @@
                                 <img src="{{ asset($item->thumbnail) }}" class="img-responsive" alt="">
                             </a>
                             <div class="news-info">
-                                <span>{{ $item->created_at }}</span>
+                                <span>{{ formatDatetime($item->created_at) }}</span>
                                 <h3><a href="{{ route('posts.show', $item->slug) }}">{{ $item->title }}</a></h3>
                                 {{--                            <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>--}}
                                 {{--                            <div class="author">--}}

@@ -6,16 +6,30 @@ use Illuminate\Support\Facades\Storage;
 if (!function_exists('upload')) {
     function upload($file, $path): string
     {
-        $pngimg = imagecreatefrompng($file);
+        switch ($file->getMimeType()) {
+            case 'image/png':
+                $newImg = imagecreatefrompng($file);
+                break;
+            case 'image/x-ms-bmp':
+                $newImg = imagecreatefrombmp($file);
+                break;
+            case 'image/jpeg':
+                $newImg = imagecreatefromjpeg($file);
+                break;
+        }
+
+        if (empty($newImg)) {
+            return Storage::url(Storage::disk('public')->putFile($path, $file));
+        }
 
 // get dimens of image
 
-        $w = imagesx($pngimg);
-        $h = imagesy($pngimg);;
+        $w = imagesx($newImg);
+        $h = imagesy($newImg);;
 
 // create a canvas
 
-        $im = imagecreatetruecolor ($w, $h);
+        $im = imagecreatetruecolor($w, $h);
         imageAlphaBlending($im, false);
         imageSaveAlpha($im, true);
 
@@ -26,11 +40,21 @@ if (!function_exists('upload')) {
 
 // copy png to canvas
 
-        imagecopy($im, $pngimg, 0, 0, 0, 0, $w, $h);
+        imagecopy($im, $newImg, 0, 0, 0, 0, $w, $h);
 
 // lastly, save canvas as a webp
 
-        imagewebp($im, str_replace('png', 'webp', $file));
+        switch ($file->getMimeType()) {
+            case 'image/png':
+                imagewebp($im, str_replace('png', 'webp', $file));
+                break;
+            case 'image/x-ms-bmp':
+                imagewebp($im, str_replace('bmp', 'webp', $file));
+                break;
+            case 'image/jpeg':
+                imagewebp($im, str_replace('jpeg', 'webp', $file));
+                break;
+        }
 
 // done
 
@@ -47,5 +71,13 @@ if (!function_exists('removeFileUpload')) {
         if (File::exists($filename)) {
             unlink(storage_path('app/public/uploads/' . $filename));
         }
+    }
+}
+
+
+if (!function_exists('formatDatetime')) {
+    function formatDatetime($datetime, $format = 'Y-m-d')
+    {
+        return \Carbon\Carbon::parse($datetime)->format($format);
     }
 }
