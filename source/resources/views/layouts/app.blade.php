@@ -11,7 +11,7 @@
     <meta property="og:description"
           content="@if(View::hasSection('fb_description')) @yield('fb_description') @else Phòng Khám Đa Khoa Y Cao Hoa Hồng - Hoa Hong High-tech General Clinic @endif "/>
     <meta property="og:image"
-          content="@if(View::hasSection('fb_image')) @yield('fb_image') @else {{ asset('images/logo.png') }} @endif "/>
+          content="@if(View::hasSection('fb_image')) @yield('fb_image') @else {{ asset('images/logo.svg') }} @endif "/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

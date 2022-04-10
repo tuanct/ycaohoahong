@@ -65,7 +65,7 @@
 {{--               class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">--}}
 {{--                </a>--}}
             <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-                <img class="w-20" src="{{ asset('images/logo.png') }}" class="logo" alt="Phòng Khám Đa Khoa Y Cao Hoa Hồng">
+                <img class="w-20" src="{{ asset('images/logo.svg') }}" class="logo" alt="Phòng Khám Đa Khoa Y Cao Hoa Hồng">
             </button>
         </div>
         <nav :class="{'block': open, 'hidden': !open}"

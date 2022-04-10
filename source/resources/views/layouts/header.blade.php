@@ -29,7 +29,7 @@
                 <span class="icon icon-bar"></span>
             </button>
 
-            <a href="{{ route('home') }}" class="navbar-brand"><img src="{{ asset('images/logo.png') }}" alt=""><span>PHÒNG KHÁM ĐA KHOA Y CAO HOA HỒNG</span></a>
+            <a href="{{ route('home') }}" class="navbar-brand"><img src="{{ asset('images/logo.svg') }}" alt=""><span>PHÒNG KHÁM ĐA KHOA Y CAO HOA HỒNG</span></a>
         </div>
 
         <!-- MENU LINKS -->
