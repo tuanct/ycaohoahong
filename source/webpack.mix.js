@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    // .scripts('resources/js/main/*', 'public/js/main.js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss')
@@ -21,7 +22,7 @@ mix.js('resources/js/app.js', 'public/js')
 });
 
 mix.copyDirectory('resources/images', 'public/images');
-// mix.copyDirectory('resources/fonts', 'public/fonts');
+mix.copyDirectory('resources/fonts', 'public/fonts');
 mix.copyDirectory('resources/js/main', 'public/js');
 
 if (mix.inProduction()) {
