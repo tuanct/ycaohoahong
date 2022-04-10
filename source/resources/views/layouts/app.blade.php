@@ -156,17 +156,17 @@
     <div class="zalo-chat-widget" data-oaid="1349867481366251779" data-welcome-message="Rất vui khi được hỗ trợ bạn!"
          data-autopopup="0" data-width="" data-height="" style="bottom: 100px; right: 25px"></div>
 
-    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+    <script async src="https://sp.zalo.me/plugins/sdk.js"></script>
 </footer>
 <!-- SCRIPTS -->
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/jquery.sticky.js') }}"></script>
-<script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
-<script src="{{ asset('js/wow.min.js') }}"></script>
-<script src="{{ asset('js/smoothscroll.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
+<script async src="{{ asset('js/jquery.js') }}"></script>
+<script async src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script async src="{{ asset('js/jquery.sticky.js') }}"></script>
+<script async src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+<script async src="{{ asset('js/wow.min.js') }}"></script>
+<script async src="{{ asset('js/smoothscroll.js') }}"></script>
+<script async src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script async src="{{ asset('js/custom.js') }}"></script>
 
 </body>
 </html>
