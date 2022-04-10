@@ -21,7 +21,7 @@ mix.js('resources/js/app.js', 'public/js')
 });
 
 mix.copyDirectory('resources/images', 'public/images');
-mix.copyDirectory('resources/fonts', 'public/fonts');
+// mix.copyDirectory('resources/fonts', 'public/fonts');
 mix.copyDirectory('resources/js/main', 'public/js');
 
 if (mix.inProduction()) {
