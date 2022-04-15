@@ -34,10 +34,10 @@
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                             Thumbnail
                                         </th>
-{{--                                        <th scope="col"--}}
-{{--                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide text-center">--}}
-{{--                                            Status--}}
-{{--                                        </th>--}}
+                                        {{--                                        <th scope="col"--}}
+                                        {{--                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide text-center">--}}
+                                        {{--                                            Status--}}
+                                        {{--                                        </th>--}}
                                         <th scope="col" class="relative px-6 py-3">
                                             <span class="sr-only">Action</span>
                                         </th>
@@ -69,15 +69,16 @@
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex justify-center">
-                                                        <img class="object-contain w-20" src="{{ asset($banner->thumbnail) }}" alt="">
+                                                        <img class="object-contain w-20"
+                                                             src="{{ asset($banner->thumbnail) }}" alt="">
                                                     </div>
                                                 </td>
-{{--                                                <td class="px-6 py-4 whitespace-nowrap">--}}
-{{--                                                    <div class="flex justify-center">--}}
-{{--                                                        <x-status-view :status="!!$banner->status">--}}
-{{--                                                        </x-status-view>--}}
-{{--                                                    </div>--}}
-{{--                                                </td>--}}
+                                                {{--                                                <td class="px-6 py-4 whitespace-nowrap">--}}
+                                                {{--                                                    <div class="flex justify-center">--}}
+                                                {{--                                                        <x-status-view :status="!!$banner->status">--}}
+                                                {{--                                                        </x-status-view>--}}
+                                                {{--                                                    </div>--}}
+                                                {{--                                                </td>--}}
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex justify-center">
                                                         <div class="flex space-x-2">

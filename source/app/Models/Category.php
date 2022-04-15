@@ -23,7 +23,8 @@ class Category extends Model
         self::CATEGORY_VACCINATION => 'Tiêm Chủng Dịch Vụ',
     ];
 
-    public function posts() {
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
 }

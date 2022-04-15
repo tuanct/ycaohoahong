@@ -40,8 +40,10 @@
                                                 Status
                                             </th>
                                             <th scope="col" rowspan="2">
-                                                <button type="submit" class="px-4 py-2 border rounded-md">Search</button>
-                                                <a href="{{ route('admin.posts.index') }}" class="px-4 py-2 border-red-900 rounded-md">Reset</a>
+                                                <button type="submit" class="px-4 py-2 border rounded-md">Search
+                                                </button>
+                                                <a href="{{ route('admin.posts.index') }}"
+                                                   class="px-4 py-2 border-red-900 rounded-md">Reset</a>
                                             </th>
                                         </tr>
                                         <tr>
@@ -52,13 +54,15 @@
                                                     <option value="">---</option>
                                                     @foreach($categories as $category)
                                                         <option
-                                                            value="{{ $category->key }}" @if(request()->get('category_id') == $category->key) selected @endif>{{ $category->name }}</option>
+                                                            value="{{ $category->key }}"
+                                                            @if(request()->get('category_id') == $category->key) selected @endif>{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </td>
                                             <td></td>
                                             <td>
-                                                <input type="text" id="title" name="title" value="{{ request()->get('title') }}"
+                                                <input type="text" id="title" name="title"
+                                                       value="{{ request()->get('title') }}"
                                                        class="block w-full appearance-none bg-white border border-gray-400
                                                         rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
                                             </td>

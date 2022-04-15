@@ -11,7 +11,8 @@
                         <div class="col-md-12 col-sm-12">
                             <!-- SECTION TITLE -->
                             <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                                <h2>{!! $category->name !!}</h2> <a href="{{ route('posts.index', ['category' => $category->id]) }}"><b>Xem Thêm</b></a>
+                                <h2>{!! $category->name !!}</h2> <a
+                                    href="{{ route('posts.index', ['category' => $category->id]) }}"><b>Xem Thêm</b></a>
                             </div>
                         </div>
 

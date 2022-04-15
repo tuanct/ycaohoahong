@@ -20,7 +20,8 @@
                                     <select name="category" id="category"
                                             class="block appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                         @foreach($categories as $key => $category)
-                                            <option value="{{ $category->key }}" @if($category->key == $post->category_id) selected @endif>{{ $category->name }}</option>
+                                            <option value="{{ $category->key }}"
+                                                    @if($category->key == $post->category_id) selected @endif>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -33,7 +33,7 @@
                             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                                      d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
                             </svg>
                         </span>
                     <p class="ml-3 font-medium text-white truncate">
@@ -48,7 +48,7 @@
                         <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M6 18L18 6M6 6l12 12" />
+                                  d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
                 </div>
@@ -61,11 +61,12 @@
          class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white md:w-64 dark:text-gray-200 dark:bg-gray-800"
          x-data="{ open: false }">
         <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-{{--            <a href="#"--}}
-{{--               class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">--}}
-{{--                </a>--}}
+            {{--            <a href="#"--}}
+            {{--               class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">--}}
+            {{--                </a>--}}
             <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-                <img class="w-20" src="{{ asset('images/logo.svg') }}" class="logo" alt="Phòng Khám Đa Khoa Y Cao Hoa Hồng">
+                <img class="w-20" src="{{ asset('images/logo.svg') }}" class="logo"
+                     alt="Phòng Khám Đa Khoa Y Cao Hoa Hồng">
             </button>
         </div>
         <nav :class="{'block': open, 'hidden': !open}"
@@ -74,10 +75,10 @@
             </x-admin-link>
             <x-admin-link :href="route('admin.posts.index')">Posts
             </x-admin-link>
-{{--            <x-admin-link :href="route('admin.posts.index', ['category' => 'banner'])" :active="request()->category === 'banner'">Banners--}}
-{{--            </x-admin-link>--}}
-{{--            <x-admin-link :href="route('admin.posts.index', ['category' => 'news'])" :active="request()->category === 'news'">Tin Tức--}}
-{{--            </x-admin-link>--}}
+            {{--            <x-admin-link :href="route('admin.posts.index', ['category' => 'banner'])" :active="request()->category === 'banner'">Banners--}}
+            {{--            </x-admin-link>--}}
+            {{--            <x-admin-link :href="route('admin.posts.index', ['category' => 'news'])" :active="request()->category === 'news'">Tin Tức--}}
+            {{--            </x-admin-link>--}}
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
                         class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">

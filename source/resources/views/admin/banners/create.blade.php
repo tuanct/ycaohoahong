@@ -50,14 +50,14 @@
                                 @error('content') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                             </div>
 
-{{--                            <div class="sm:col-span-6">--}}
-{{--                                <label for="status" class="block text-sm font-medium text-gray-700"> Status </label>--}}
-{{--                                <div class="mt-1">--}}
-{{--                                    <input type="radio" id="status" name="status" value="1" checked> Active--}}
-{{--                                    <input type="radio" id="status" name="status" value="0"> Inactive--}}
-{{--                                </div>--}}
-{{--                                @error('status') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror--}}
-{{--                            </div>--}}
+                            {{--                            <div class="sm:col-span-6">--}}
+                            {{--                                <label for="status" class="block text-sm font-medium text-gray-700"> Status </label>--}}
+                            {{--                                <div class="mt-1">--}}
+                            {{--                                    <input type="radio" id="status" name="status" value="1" checked> Active--}}
+                            {{--                                    <input type="radio" id="status" name="status" value="0"> Inactive--}}
+                            {{--                                </div>--}}
+                            {{--                                @error('status') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror--}}
+                            {{--                            </div>--}}
                             <div class="sm:col-span-6 pt-5">
                                 <button type="submit" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md">
                                     Create

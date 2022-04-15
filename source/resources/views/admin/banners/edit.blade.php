@@ -20,7 +20,8 @@
                                     <select name="sort" id="sort"
                                             class="block w-auto appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                         @for($i = 1; $i <= $sorts; $i++)
-                                            <option value="{{ $i }}" @if($i == $banner->sort) selected @endif>{{ $i }}</option>
+                                            <option value="{{ $i }}"
+                                                    @if($i == $banner->sort) selected @endif>{{ $i }}</option>
                                         @endfor
                                     </select>
                                 </div>

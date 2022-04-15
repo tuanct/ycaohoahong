@@ -12,10 +12,12 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $banners = Banner::orderBy('sort', 'ASC')->get();
-        $categories = Category::with(['posts' => function($query) {
-            $query->where('status', Post::STATUS_ACTIVE)->limit(3);
-    }])->get();
-        return view('home',
-            compact('banners', 'categories'));
+        $categories = Category::get()
+            ->each(function ($feed) {
+                $feed->load(['posts' => function($query) {
+                    $query->where('status', Post::STATUS_ACTIVE)->limit(3);
+                }]);
+            });
+        return view('home', compact('banners', 'categories'));
     }
 }

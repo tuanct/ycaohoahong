@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 @if($key%3 === 2)
-                        <div class="clearfix"></div>
+                    <div class="clearfix"></div>
                 @endif()
 
             @endforeach
