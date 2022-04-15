@@ -2,86 +2,39 @@
 @section('content')
     @include('layouts.banner')
     <!-- NEWS -->
-    <section id="news" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
+    @foreach($categories as $key => $category)
+        @if(!empty($category->posts))
+            <section id="news" data-stellar-background-ratio="0.5" style="@if($key%2) background: #FFFFFF @endif">
+                <div class="container">
+                    <div class="row">
 
-                <div class="col-md-12 col-sm-12">
-                    <!-- SECTION TITLE -->
-                    <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                        <h2>Tin Nổi Bật</h2> <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_NEWS]) }}"><b>Xem Thêm</b></a>
-                    </div>
-                </div>
-
-                @foreach($news as $item)
-
-                    <div class="col-md-4 col-sm-6">
-                        <!-- NEWS THUMB -->
-                        <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
-                            <a href="{{ route('posts.show', $item->slug) }}">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-responsive" alt="">
-                            </a>
-                            <div class="news-info">
-                                <span>{{ formatDatetime($item->created_at) }}</span>
-                                <h3><a href="{{ route('posts.show', $item->slug) }}">{{ $item->title }}</a></h3>
-                                {{--                            <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>--}}
-                                {{--                            <div class="author">--}}
-                                {{--                                <img src="images/author-image.jpg" class="img-responsive" alt="">--}}
-                                {{--                                <div class="author-info">--}}
-                                {{--                                    <h5>Jeremie Carlson</h5>--}}
-                                {{--                                    <p>CEO / Founder</p>--}}
-                                {{--                                </div>--}}
-                                {{--                            </div>--}}
+                        <div class="col-md-12 col-sm-12">
+                            <!-- SECTION TITLE -->
+                            <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                                <h2>{!! $category->name !!}</h2> <a href="{{ route('posts.index', ['category' => $category->id]) }}"><b>Xem Thêm</b></a>
                             </div>
                         </div>
-                    </div>
 
-                @endforeach
+                        @foreach($category->posts as $post)
+                            <div class="col-md-4 col-sm-6">
+                                <!-- NEWS THUMB -->
+                                <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
+                                    <a href="{{ route('posts.show', $post->slug) }}">
+                                        <img src="{{ asset($post->thumbnail) }}" class="img-responsive" alt="">
+                                    </a>
+                                    <div class="news-info">
+                                        <span>{{ formatDatetime($post->created_at) }}</span>
+                                        <h3><a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 
-            </div>
-        </div>
-    </section>
-
-    <section id="team" data-stellar-background-ratio="1">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-12 col-sm-12">
-                    <!-- SECTION TITLE -->
-                    <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                        <h2>Kiến Thức Y Khoa</h2> <a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_POST]) }}"><b>Xem Thêm</b></a>
                     </div>
                 </div>
-
-                @foreach($posts as $item)
-
-                    <div class="col-md-4 col-sm-6">
-                        <a href="{{ route('posts.show', $item->slug) }}">
-                            <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                                <img src="{{ asset($item->thumbnail) }}" class="img-responsive" alt="">
-
-                                <div class="team-info">
-                                    <h3>{{ $item->title }}</h3>
-                                    {{--                                <p>General Principal</p>--}}
-                                    {{--                                <div class="team-contact-info">--}}
-                                    {{--                                    <p><i class="fa fa-phone"></i> 010-020-0120</p>--}}
-                                    {{--                                    <p><i class="fa fa-envelope-o"></i> <a href="#">general@company.com</a></p>--}}
-                                    {{--                                </div>--}}
-                                    {{--                                <ul class="social-icon">--}}
-                                    {{--                                    <li><a href="#" class="fa fa-linkedin-square"></a></li>--}}
-                                    {{--                                    <li><a href="#" class="fa fa-envelope-o"></a></li>--}}
-                                    {{--                                </ul>--}}
-                                </div>
-
-                            </div>
-                        </a>
-                    </div>
-
-                @endforeach
-
-            </div>
-        </div>
-    </section>
+            </section>
+        @endif
+    @endforeach
 
     <section id="social" data-stellar-background-ratio="1.5" style="background-color: #f9f9f9">
         <div class="container">

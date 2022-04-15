@@ -19,20 +19,26 @@ class CategoriesSeeder extends Seeder
         DB::table('categories')->truncate();
         DB::table('categories')->insert([
             [
-                'name' => Category::TYPE_POST,
-                'key' => Category::TYPE_POST,
+                'name' => Category::CATEGORY_ARRAY[Category::CATEGORY_POLYCLINIC],
+                'key' => Category::CATEGORY_POLYCLINIC,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => Category::TYPE_BANNER,
-                'key' => Category::TYPE_BANNER,
+                'name' => Category::CATEGORY_ARRAY[Category::CATEGORY_DENTOMAXILLOFACIAL],
+                'key' => Category::CATEGORY_DENTOMAXILLOFACIAL,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => Category::TYPE_NEWS,
-                'key' => Category::TYPE_NEWS,
+                'name' => Category::CATEGORY_ARRAY[Category::CATEGORY_DERMATOLOGY],
+                'key' => Category::CATEGORY_DERMATOLOGY,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => Category::CATEGORY_ARRAY[Category::CATEGORY_VACCINATION],
+                'key' => Category::CATEGORY_VACCINATION,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

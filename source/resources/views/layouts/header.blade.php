@@ -35,12 +35,11 @@
         <!-- MENU LINKS -->
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('home') }}" class="smoothScroll">Trang Chủ</a></li>
                 <li><a href="{{ route('about') }}" class="smoothScroll">Giới Thiệu</a></li>
-                <li><a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_POST]) }}" class="smoothScroll">Kiến Thức Y Khoa</a></li>
-                <li><a href="{{ route('posts.index', ['category' => \App\Models\Category::TYPE_NEWS]) }}" class="smoothScroll">Tin Tức</a></li>
+                @foreach(\App\Models\Category::CATEGORY_ARRAY as $key => $category)
+                <li><a href="{{ route('posts.index', ['category' => $key]) }}" class="smoothScroll">{!! $category !!}</a></li>
+                @endforeach
                 <li><a href="{{ route('contact') }}" class="smoothScroll">Liên Hệ</a></li>
-{{--                <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>--}}
             </ul>
         </div>
 

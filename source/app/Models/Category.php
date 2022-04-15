@@ -11,7 +11,19 @@ class Category extends Model
 
     protected $guarded = ['id'];
 
-    const TYPE_POST = 'post';
-    const TYPE_BANNER = 'banner';
-    const TYPE_NEWS = 'news';
+    const CATEGORY_POLYCLINIC = 1;
+    const CATEGORY_DENTOMAXILLOFACIAL = 2;
+    const CATEGORY_DERMATOLOGY = 3;
+    const CATEGORY_VACCINATION = 4;
+
+    const CATEGORY_ARRAY = [
+        self::CATEGORY_POLYCLINIC => 'Đa Khoa',
+        self::CATEGORY_DENTOMAXILLOFACIAL => 'Răng Hàm Mặt',
+        self::CATEGORY_DERMATOLOGY => 'Da Liễu Thẩm Mỹ',
+        self::CATEGORY_VACCINATION => 'Tiêm Chủng Dịch Vụ',
+    ];
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
 }

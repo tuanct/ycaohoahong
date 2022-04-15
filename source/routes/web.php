@@ -23,6 +23,7 @@ Route::group(['middleware' => 'HtmlMinifier'], function () {
     })->name('contact');
     Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
     Route::get('/posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
+    Route::get('/banners/{slug}', [App\Http\Controllers\BannerController::class, 'show'])->name('banners.show');
 
 });
 Route::middleware(['auth:sanctum', 'verified'])
@@ -33,11 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])
         Route::get('/', function () {
             return view('admin.dashboard');
         })->name('dashboard');
-//        Route::get('/dashboard', function () {
-//            return view('admin.dashboard');
-//        })->name('dashboard');
 
-        Route::group(['prefix' => '{category}'], function () {
-            Route::resource('posts', 'PostController');
-        });
+        Route::resource('posts', 'PostController');
+        Route::resource('banners', 'BannerController');
     });

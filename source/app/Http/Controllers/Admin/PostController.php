@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Posts\CreatePostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -14,14 +15,9 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    protected mixed $category;
 
-    public function __construct(Request $request)
+    public function __construct()
     {
-        $this->category = $request->category;
-        if (!$this->category) {
-            redirect()->route('admin.dashboard')->send();
-        }
     }
 
     /**
@@ -29,10 +25,25 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($category)
+    public function index(Request $request)
     {
-        $posts = Post::where('category', $category)->orderBy('id', 'DESC')->paginate(20);
-        return view('admin.posts.index', compact('posts'));
+        $posts = Post::orderBy('id', 'DESC');
+        foreach ($request->all() as $key => $item) {
+            if (!$item) {
+                continue;
+            }
+            switch ($key) {
+                case 'title':
+                    $posts = $posts->where('title', 'LIKE', '%' . $item . '%');
+                    break;
+                default:
+                    $posts = $posts->where($key, $item);
+                    break;
+            }
+        }
+        $posts = $posts->paginate(20);
+        $categories = Category::get();
+        return view('admin.posts.index', compact('posts', 'categories'));
     }
 
     /**
@@ -40,9 +51,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($category)
+    public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::get();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -50,8 +62,9 @@ class PostController extends Controller
      *
      * @param CreatePostRequest $request
      */
-    public function store($category, CreatePostRequest $request)
+    public function store(CreatePostRequest $request)
     {
+        $path = null;
         if ($request->file('thumbnail')) {
             $path = upload($request->file('thumbnail'), 'uploads/posts');
         }
@@ -61,13 +74,13 @@ class PostController extends Controller
             'thumbnail' => $path,
             'content' => $request->get('content'),
             'status' => $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE,
-            'category' => $category,
-            'slug' => Str::slug($request->get('title')) . Carbon::now()->timestamp
+            'category_id' => $request->get('category'),
+            'slug' => Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp
         ]);
         if (!$post) {
             return redirect()->back()->withInput()->withErrors(__('Fail'));
         }
-        return redirect()->route('admin.posts.index', ['category' => $category])->with('success', 'Success');
+        return redirect()->route('admin.posts.index')->with('success', 'Success');
     }
 
     /**
@@ -76,7 +89,7 @@ class PostController extends Controller
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function show($category, Post $post)
+    public function show(Post $post)
     {
         return view('admin.posts.show', compact('post'));
     }
@@ -87,9 +100,10 @@ class PostController extends Controller
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($category, Post $post)
+    public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::get();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -99,7 +113,7 @@ class PostController extends Controller
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update($category, Request $request, Post $post)
+    public function update(Request $request, Post $post)
     {
         if ($request->file('thumbnail')) {
             if ($post->thumbnail) {
@@ -111,12 +125,13 @@ class PostController extends Controller
         $post->title = $request->get('title');
         $post->content = $request->get('content');
         $post->user_id = Auth::id();
+        $post->category_id = $request->get('category');
         $post->status = $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE;
-        $post->slug = Str::slug($request->get('title')) . Carbon::now()->timestamp;
+        $post->slug = Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp;
         if (!$post->save()) {
             return redirect()->back()->withInput()->withErrors(__('Fail'));
         }
-        return redirect()->route('admin.posts.index', ['category' => $category])->with('success', 'Success');
+        return redirect()->route('admin.posts.index')->with('success', 'Success');
     }
 
     /**
@@ -125,7 +140,7 @@ class PostController extends Controller
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($category, Post $post)
+    public function destroy(Post $post)
     {
         if (!$post->delete()) {
             return redirect()->back()->withInput()->withErrors(__('Fail'));
@@ -134,6 +149,6 @@ class PostController extends Controller
         $filename = str_replace('/storage/uploads/', '', $post->thumbnail);
         // remove old image
         removeFileUpload($post->thumbnail);
-        return redirect()->route('admin.posts.index', ['category' => $category])->with('success', 'Success');
+        return redirect()->route('admin.posts.index')->with('success', 'Success');
     }
 }

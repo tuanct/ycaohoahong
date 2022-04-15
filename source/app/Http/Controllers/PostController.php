@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(Request $request) {
-        $posts = Post::where('category', $request->category)
+        $posts = Post::where('category_id', $request->category)
             ->where('status', Post::STATUS_ACTIVE)
             ->orderBy('id', 'DESC')
             ->paginate(21)
@@ -20,7 +20,7 @@ class PostController extends Controller
         $post = Post::where('status', Post::STATUS_ACTIVE)->where('slug', $slug)->firstOrFail();
         $recentPosts = Post::where('id', '<>', $post->id)
             ->where('status', Post::STATUS_ACTIVE)
-            ->where('category', $post->category)
+            ->where('category_id', $post->category_id)
             ->inRandomOrder()
             ->limit(3)
             ->get();

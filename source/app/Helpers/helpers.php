@@ -81,3 +81,13 @@ if (!function_exists('formatDatetime')) {
         return \Carbon\Carbon::parse($datetime)->format($format);
     }
 }
+
+if (!function_exists('subText')) {
+    function subText($text, $length = 10)
+    {
+        $lengthText = strlen($text);
+        return $lengthText > $length ? substr($text,0, $length) . '...' : $text;
+    }
+}
+
+

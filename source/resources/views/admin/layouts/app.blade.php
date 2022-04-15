@@ -70,12 +70,14 @@
         </div>
         <nav :class="{'block': open, 'hidden': !open}"
              class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-            <x-admin-link :href="route('admin.posts.index', ['category' => 'post'])" :active="request()->category === 'post'">Kiến Thức Y Khoa
+            <x-admin-link :href="route('admin.banners.index')">Banners
             </x-admin-link>
-            <x-admin-link :href="route('admin.posts.index', ['category' => 'banner'])" :active="request()->category === 'banner'">Banners
+            <x-admin-link :href="route('admin.posts.index')">Posts
             </x-admin-link>
-            <x-admin-link :href="route('admin.posts.index', ['category' => 'news'])" :active="request()->category === 'news'">Tin Tức
-            </x-admin-link>
+{{--            <x-admin-link :href="route('admin.posts.index', ['category' => 'banner'])" :active="request()->category === 'banner'">Banners--}}
+{{--            </x-admin-link>--}}
+{{--            <x-admin-link :href="route('admin.posts.index', ['category' => 'news'])" :active="request()->category === 'news'">Tin Tức--}}
+{{--            </x-admin-link>--}}
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
                         class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
