@@ -11,13 +11,17 @@
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="align-middle inline-block min-w-full">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table class="w-full divide-y divide-gray-200">
+                                <table class="w-full divide-y divide-gray-200 table-responsive">
                                     <form action="">
                                         <thead class="bg-gray-50">
                                         <tr>
                                             <th scope="col"
                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                                 ID
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                                                Total Click
                                             </th>
                                             <th scope="col"
                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
@@ -39,14 +43,10 @@
                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide text-center">
                                                 Status
                                             </th>
-                                            <th scope="col" rowspan="2">
-                                                <button type="submit" class="px-4 py-2 border rounded-md">Search
-                                                </button>
-                                                <a href="{{ route('admin.posts.index') }}"
-                                                   class="px-4 py-2 border-red-900 rounded-md">Reset</a>
-                                            </th>
+                                            <th></th>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td></td>
                                             <td class="flex justify-center">
                                                 <select name="category_id" id="category"
@@ -68,6 +68,12 @@
                                             </td>
                                             <td></td>
                                             <td></td>
+                                            <td>
+                                                <button type="submit" class="px-4 py-2 border rounded-md">Search
+                                                </button>
+                                                <a href="{{ route('admin.posts.index') }}"
+                                                   class="px-4 py-2 border-red-900 rounded-md">Reset</a>
+                                            </td>
                                         </tr>
                                         </thead>
                                     </form>
@@ -80,7 +86,12 @@
                                                         {{ $post->id }}
                                                     </div>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                <td class="whitespace-nowrap">
+                                                    <div class="flex justify-center">
+                                                        {{ $post->count_click }}
+                                                    </div>
+                                                </td>
+                                                <td class="whitespace-nowrap">
                                                     <div class="flex justify-center">
                                                         {{ $post->category->name }}
                                                     </div>

@@ -15,7 +15,7 @@ class HomeController extends Controller
         $categories = Category::get()
             ->each(function ($feed) {
                 $feed->load(['posts' => function($query) {
-                    $query->where('status', Post::STATUS_ACTIVE)->limit(3);
+                    $query->where('status', Post::STATUS_ACTIVE)->orderBy('id', 'DESC')->limit(3);
                 }]);
             });
         return view('home', compact('banners', 'categories'));

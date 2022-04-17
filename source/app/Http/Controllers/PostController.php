@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $posts = Post::where('category_id', $request->category)
             ->where('status', Post::STATUS_ACTIVE)
             ->orderBy('id', 'DESC')
@@ -16,8 +17,11 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    public function show($slug) {
+    public function show($slug)
+    {
         $post = Post::where('status', Post::STATUS_ACTIVE)->where('slug', $slug)->firstOrFail();
+        $post->count_click = $post->count_click + 1;
+        $post->save();
         $recentPosts = Post::where('id', '<>', $post->id)
             ->where('status', Post::STATUS_ACTIVE)
             ->where('category_id', $post->category_id)
