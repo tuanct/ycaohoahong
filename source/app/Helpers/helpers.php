@@ -86,7 +86,7 @@ if (!function_exists('subText')) {
     function subText($text, $length = 10)
     {
         $lengthText = strlen($text);
-        return $lengthText > $length ? substr($text,0, $length) . '...' : $text;
+        return $lengthText > $length ? substr(strip_tags($text),0, $length) . '...' : $text;
     }
 }
 

@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Posts\CreatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -68,18 +70,29 @@ class PostController extends Controller
         if ($request->file('thumbnail')) {
             $path = upload($request->file('thumbnail'), 'uploads/posts');
         }
-        $post = Post::create([
-            'user_id' => Auth::id(),
-            'title' => $request->get('title'),
-            'thumbnail' => $path,
-            'content' => $request->get('content'),
-            'status' => $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE,
-            'category_id' => $request->get('category'),
-            'slug' => Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp
-        ]);
-        if (!$post) {
-            return redirect()->back()->withInput()->withErrors(__('Fail'));
+        DB::transaction(function () use ($request, $path) {
+            $post = Post::create([
+                'user_id' => Auth::id(),
+                'title' => $request->get('title'),
+                'thumbnail' => $path,
+                'content' => $request->get('content'),
+                'status' => $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE,
+                'category_id' => $request->get('category'),
+                'slug' => Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp
+            ]);
+            if ($request->get('tags')) {
+                foreach (json_decode($request->get('tags')) as $tag) {
+                    Tag::create((array)$tag + ['post_id' => $post->id]);
+                }
+            }
         }
+
+        );
+//        if (!$post || !$tags) {
+//            DB::rollBack();
+//            return redirect()->back()->withInput()->withErrors(__('Fail'));
+//        }
+//        DB::commit();
         return redirect()->route('admin.posts.index')->with('success', 'Success');
     }
 
@@ -122,15 +135,21 @@ class PostController extends Controller
             $path = upload($request->file('thumbnail'), 'uploads/posts');
             $post->thumbnail = $path;
         }
-        $post->title = $request->get('title');
-        $post->content = $request->get('content');
-        $post->user_id = Auth::id();
-        $post->category_id = $request->get('category');
-        $post->status = $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE;
-        $post->slug = Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp;
-        if (!$post->save()) {
-            return redirect()->back()->withInput()->withErrors(__('Fail'));
-        }
+        DB::transaction(function () use($request, $post) {
+            $post->title = $request->get('title');
+            $post->content = $request->get('content');
+            $post->user_id = Auth::id();
+            $post->category_id = $request->get('category');
+            $post->status = $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE;
+            $post->slug = Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp;
+            $post->save();
+            if ($request->get('tags')) {
+                $post->tags()->delete();
+                foreach (json_decode($request->get('tags')) as $tag) {
+                    Tag::create((array)$tag + ['post_id' => $post->id]);
+                }
+            }
+        });
         return redirect()->route('admin.posts.index')->with('success', 'Success');
     }
 

@@ -12,6 +12,9 @@
           content="@if(View::hasSection('fb_description')) @yield('fb_description') @else Phòng Khám Đa Khoa Y Cao Hoa Hồng - Hoa Hong High-tech General Clinic @endif "/>
     <meta property="og:image"
           content="@if(View::hasSection('fb_image')) @yield('fb_image') @else {{ asset('images/logo.svg') }} @endif "/>
+    <meta name="description" content="KHÁM BẢO HIỂM Y TẾ THÔNG TUYẾN
+                        Đầy đủ đa khoa : Nội - Ngoại - Sản - Nhi - Đông y - Nha khoa - Da liễu thẩm mỹ - Mắt, kính mắt
+                        thuốc - Tai mũi họng - Phòng tiêm chủng vắc xin dịch vụ">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

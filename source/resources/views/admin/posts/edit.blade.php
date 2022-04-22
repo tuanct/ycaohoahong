@@ -56,6 +56,21 @@
                             </div>
 
                             <div class="sm:col-span-6">
+                                <label for="tags" class="block text-sm font-medium text-gray-700"> Tags </label>
+                                <div class="mt-1">
+                                    <input type="text" id="tags" name="tags"
+                                           class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
+                                </div>
+                                @error('tags') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
+                                <script>
+                                    let tagify = new Tagify(document.querySelector('[name="tags"]'));
+                                    @foreach($post->tags as $tag)
+                                    tagify.addTags([{"value":"{{ $tag->value }}"}])
+                                    @endforeach
+                                </script>
+                            </div>
+
+                            <div class="sm:col-span-6">
                                 <label for="status" class="block text-sm font-medium text-gray-700"> Status </label>
                                 <div class="mt-1">
                                     <input type="radio" id="status" name="status"

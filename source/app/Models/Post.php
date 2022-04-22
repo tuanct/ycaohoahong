@@ -11,14 +11,21 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
-    Const STATUS_ACTIVE = 1;
-    Const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
+    }
+
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
     }
 }

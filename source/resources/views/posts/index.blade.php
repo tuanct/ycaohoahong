@@ -22,7 +22,7 @@
                         <div class="news-info">
                             <span>{{ formatDatetime($item->created_at) }}</span>
                             <h3><a href="{{ (route('posts.show', $item->slug)) }}">{{ $item->title }}</a></h3>
-                            {{--                            <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>--}}
+{{--                            <p>{!! subText($item->content, 1200) !!}</p>--}}
                             {{--                            <div class="author">--}}
                             {{--                                <img src="images/author-image.jpg" class="img-responsive" alt="">--}}
                             {{--                                <div class="author-info">--}}

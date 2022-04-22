@@ -41,6 +41,15 @@
                                     </div>
                                 @endforeach()
                             </div>
+
+                            @if($post->tags->count())
+                                <div class="news-tags">
+                                    <h4>Tags</h4>
+                                    @foreach($post->tags as $tag)
+                                        <li><a href="#">{{ $tag->value }}</a></li>
+                                    @endforeach()
+                                </div>
+                            @endif()
                         </div>
                     </div>
                 @endif()

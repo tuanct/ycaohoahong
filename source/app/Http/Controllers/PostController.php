@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function show($slug)
     {
-        $post = Post::where('status', Post::STATUS_ACTIVE)->where('slug', $slug)->firstOrFail();
+        $post = Post::where('status', Post::STATUS_ACTIVE)->where('slug', $slug)->with('tags')->firstOrFail();
         $post->count_click = $post->count_click + 1;
         $post->save();
         $recentPosts = Post::where('id', '<>', $post->id)

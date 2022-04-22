@@ -15,10 +15,10 @@
                                     <form action="">
                                         <thead class="bg-gray-50">
                                         <tr>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                                ID
-                                            </th>
+{{--                                            <th scope="col"--}}
+{{--                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">--}}
+{{--                                                ID--}}
+{{--                                            </th>--}}
                                             <th scope="col"
                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                                 Total Click
@@ -46,7 +46,7 @@
                                             <th></th>
                                         </tr>
                                         <tr>
-                                            <td></td>
+{{--                                            <td></td>--}}
                                             <td></td>
                                             <td class="flex justify-center">
                                                 <select name="category_id" id="category"
@@ -81,11 +81,11 @@
                                     @if($posts->count())
                                         @foreach ($posts as $post)
                                             <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex justify-center">
-                                                        {{ $post->id }}
-                                                    </div>
-                                                </td>
+{{--                                                <td class="px-6 py-4 whitespace-nowrap">--}}
+{{--                                                    <div class="flex justify-center">--}}
+{{--                                                        {{ $post->id }}--}}
+{{--                                                    </div>--}}
+{{--                                                </td>--}}
                                                 <td class="whitespace-nowrap">
                                                     <div class="flex justify-center">
                                                         {{ $post->count_click }}
