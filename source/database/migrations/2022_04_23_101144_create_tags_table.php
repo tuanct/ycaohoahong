@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->string('title', 255);
-            $table->text('slug');
-            $table->string('thumbnail');
-            $table->text('content')->nullable();
-            $table->tinyInteger('sort');
+        Schema::create('tags', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('post_id');
+            $table->string('value', 255);
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('tags');
     }
 };
