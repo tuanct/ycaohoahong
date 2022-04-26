@@ -882,6 +882,8 @@ footer a:hover {
     color: #858585;
     font-size: 12px;
     font-weight: 500;
+    display: flex;
+    justify-content: center;
 }
 
 .footer-link a {
@@ -913,7 +915,7 @@ footer a:hover {
 }
 
 .angle-up-btn a:hover {
-    background: #4267b2;
+    background: #4C9B1A;
     color: #ffffff;
     transform: translateY(-5px);
 }

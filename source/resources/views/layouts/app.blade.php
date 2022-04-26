@@ -92,18 +92,19 @@
             </div>
 
             <div class="col-md-12 col-sm-12 border-top">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                     <div class="copyright-text">
                         <p>Copyright &copy; {{ \Carbon\Carbon::now()->format('Y') }}
 
                         {{--                            | Design: <a href="http://www.tooplate.com" target="_parent">Tooplate</a></p>--}}
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-8 col-sm-6">
                     <div class="footer-link">
                         <a href="{{ route('about') }}">Giới Thiệu</a>
-                        <a href="{{ route('posts.index') }}">Kiến Thức Y Khoa</a>
-                        <a href="{{ route('posts.index') }}">Tin Tức</a>
+                        @foreach(\App\Models\Category::CATEGORY_ARRAY as $key => $category)
+                            <a href="{{ route('posts.index', ['category' => $key]) }}" class="smoothScroll">{!! $category !!}</a>
+                        @endforeach
                         <a href="{{ route('contact') }}">Liên Hệ</a>
                     </div>
                 </div>
@@ -128,7 +129,7 @@
     <div id="fb-root"></div>
 
     <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
+    <div id="fb-customer-chat" class="fb-customerchat" theme_color="#4C9B1A">
     </div>
 
     <script>
