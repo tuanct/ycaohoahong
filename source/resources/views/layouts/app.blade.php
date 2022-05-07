@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-58RL4CJ');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website"/>
@@ -74,7 +81,7 @@
                         HUE LINH HEALTH SERVICE AND TRADE COMPANY LIMITED</h4>
 
                     <div>
-                        <p><i class="fa fa-fax" style="color: #4C9B1A"></i> Tax code/MST: 07008266</p>
+                        <p><i class="fa fa-fax" style="color: #4C9B1A"></i> Tax code/MST: 070082664</p>
                         <p><i class="fa fa-phone" style="color: #4C9B1A"></i> Phone/Số Điện thoại: 0902076131 - 0978397113 - 0788688333</p>
                         <p><i class="fa fa-map-marker" style="color: #4C9B1A"></i> Address/Địa chỉ: Dong Hai Group - Duy Hai Ward, Ha Nam <br>
                             Tổ Dân Phố Đông Hải - Phường Duy Hải - Thị Xã Duy Tiên - Tỉnh Hà Nam</p>
@@ -172,5 +179,9 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58RL4CJ"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
