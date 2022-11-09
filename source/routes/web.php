@@ -38,3 +38,5 @@ Route::middleware(['auth:sanctum', 'verified'])
         Route::resource('posts', 'PostController');
         Route::resource('banners', 'BannerController');
     });
+
+Route::post('ckeditor/upload-image', [\App\Http\Controllers\Admin\CkeditorController::class, 'uploadImage']);
