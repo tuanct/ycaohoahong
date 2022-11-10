@@ -17,8 +17,8 @@
                         </div>
 
                         @foreach($category->posts as $post)
-                            <div class="col-md-4 col-sm-6">
-                                <!-- NEWS THUMB -->
+                            <div class="col-md-4 col-sm-6 col-xs-6 mb-10">
+                                <!-- NEWS THUMB -->`
                                 <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
                                     <a href="{{ route('posts.show', $post->slug) }}">
                                         <img src="{{ asset($post->thumbnail) }}" class="img-responsive" alt="">

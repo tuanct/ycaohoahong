@@ -24,41 +24,41 @@ if (!function_exists('upload')) {
 
 // get dimens of image
 
-        $w = imagesx($newImg);
-        $h = imagesy($newImg);;
+//        $w = imagesx($newImg);
+//        $h = imagesy($newImg);;
 
 // create a canvas
 
-        $im = imagecreatetruecolor($w, $h);
-        imageAlphaBlending($im, false);
-        imageSaveAlpha($im, true);
+//        $im = imagecreatetruecolor($w, $h);
+//        imageAlphaBlending($im, false);
+//        imageSaveAlpha($im, true);
 
 // By default, the canvas is black, so make it transparent
 
-        $trans = imagecolorallocatealpha($im, 0, 0, 0, 127);
-        imagefilledrectangle($im, 0, 0, $w - 1, $h - 1, $trans);
+//        $trans = imagecolorallocatealpha($im, 0, 0, 0, 127);
+//        imagefilledrectangle($im, 0, 0, $w - 1, $h - 1, $trans);
 
 // copy png to canvas
 
-        imagecopy($im, $newImg, 0, 0, 0, 0, $w, $h);
+//        imagecopy($im, $newImg, 0, 0, 0, 0, $w, $h);
 
 // lastly, save canvas as a webp
 
-        switch ($file->getMimeType()) {
-            case 'image/png':
-                imagewebp($im, str_replace('png', 'webp', $file));
-                break;
-            case 'image/x-ms-bmp':
-                imagewebp($im, str_replace('bmp', 'webp', $file));
-                break;
-            case 'image/jpeg':
-                imagewebp($im, str_replace('jpeg', 'webp', $file));
-                break;
-        }
+//        switch ($file->getMimeType()) {
+//            case 'image/png':
+//                imagewebp($im, str_replace('png', 'webp', $file));
+//                break;
+//            case 'image/x-ms-bmp':
+//                imagewebp($im, str_replace('bmp', 'webp', $file));
+//                break;
+//            case 'image/jpeg':
+//                imagewebp($im, str_replace('jpeg', 'webp', $file));
+//                break;
+//        }
 
 // done
 
-        imagedestroy($im);
+//        imagedestroy($im);
 
         return Storage::url(Storage::disk('public')->putFile($path, $file));
     }

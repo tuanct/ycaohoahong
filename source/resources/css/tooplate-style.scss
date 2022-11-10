@@ -150,6 +150,10 @@ a:hover, a:active, a:focus {
     background: #ffffff;
     border-radius: 10px;
     min-height: 410px;
+
+    @media only screen and (max-width: 992px) {
+        min-height: 300px;
+    }
 }
 
 .news-thumb img {
@@ -159,6 +163,10 @@ a:hover, a:active, a:focus {
 .news-info {
     padding: 30px;
     text-align: left;
+
+    @media only screen and (max-width: 992px) {
+        padding: 10px;
+    }
 }
 
 .news-info span {
@@ -169,6 +177,10 @@ a:hover, a:active, a:focus {
 .news-info h3 {
     margin-top: 10px;
     margin-bottom: 10px;
+
+    @media only screen and (max-width: 992px) {
+        font-size: 1.2em;
+    }
 }
 
 .author {
@@ -464,10 +476,10 @@ header span i {
 }
 
 .slider .item {
-    background-position: inherit;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: local;
-    background-size: cover;
+    background-attachment: fixed;
+    background-size: auto 100%;
     height: 650px;
 }
 
@@ -991,6 +1003,7 @@ footer a:hover {
 @media only screen and (max-width: 992px) {
     .slider .item {
         background-position: center;
+        height: 200px;
     }
 
     header {

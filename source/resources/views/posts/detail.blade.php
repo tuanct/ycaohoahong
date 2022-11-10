@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['titlePage' => $post->title])
 @section('content')
 
     <!-- NEWS DETAIL -->

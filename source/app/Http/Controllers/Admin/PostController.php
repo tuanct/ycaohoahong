@@ -11,8 +11,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -78,7 +76,7 @@ class PostController extends Controller
                 'content' => $request->get('content'),
                 'status' => $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE,
                 'category_id' => $request->get('category'),
-                'slug' => Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp
+                'slug' => Str::slug($request->get('title'))
             ]);
             if ($request->get('tags')) {
                 foreach (json_decode($request->get('tags')) as $tag) {
@@ -141,7 +139,7 @@ class PostController extends Controller
             $post->user_id = Auth::id();
             $post->category_id = $request->get('category');
             $post->status = $request->get('status') ? Post::STATUS_ACTIVE : Post::STATUS_INACTIVE;
-            $post->slug = Str::slug($request->get('title')) . '-' . Carbon::now()->timestamp;
+            $post->slug = Str::slug($request->get('title'));
             $post->save();
             if ($request->get('tags')) {
                 $post->tags()->delete();

@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <script src="https://unpkg.com/@yaireo/tagify"></script>
     <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
@@ -121,6 +120,9 @@
         {{ $slot }}
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/codex.editor.header@2.0.4/dist/bundle.js"></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
+
 </body>
 
 </html>

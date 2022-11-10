@@ -1096,6 +1096,9 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .block {
   display: block;
 }

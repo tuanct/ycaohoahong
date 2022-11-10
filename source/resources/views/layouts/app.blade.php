@@ -26,7 +26,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ !empty($titlePage) ? $titlePage : config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
@@ -110,7 +110,8 @@
                     <div class="footer-link">
                         <a href="{{ route('about') }}">Giới Thiệu</a>
                         @foreach(\App\Models\Category::CATEGORY_ARRAY as $key => $category)
-                            <a href="{{ route('posts.index', ['category' => $key]) }}" class="smoothScroll">{!! $category !!}</a>
+                            <a href="{{ route('posts.index', ['category' => $key]) }}"
+                               class="smoothScroll">{!! $category !!}</a>
                         @endforeach
                         <a href="{{ route('contact') }}">Liên Hệ</a>
                     </div>
@@ -180,8 +181,10 @@
 <script src="{{ asset('js/custom.js') }}"></script>
 
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58RL4CJ"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58RL4CJ"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
