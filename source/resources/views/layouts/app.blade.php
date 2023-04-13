@@ -93,7 +93,12 @@
                 <div class="footer-thumb">
                     <div class="opening-hours">
                         <h4 class="wow fadeInUp" data-wow-delay="0.4s">THỜI GIAN MỞ CỬA</h4>
-                        <p>Tất Cả Các Ngày Trong Tuần <br>(Cả Thứ 7, Chủ Nhật, Ngày Lễ) <span> 07:00 - 20:00</span></p>
+                        <p>Tất Cả Các Ngày Trong Tuần <br>(Cả Thứ 7, Chủ Nhật, Ngày Lễ)
+                            <br>
+                            Sáng: 7:00 - 11:30
+                            <br>
+                            Chiều: 13:30 - 20:00
+                        </p>
                     </div>
                 </div>
             </div>

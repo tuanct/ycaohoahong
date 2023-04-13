@@ -9,7 +9,7 @@
 
             <div class="col-md-6 col-sm-6 text-align-right">
                 <span class="phone-icon"><i class="fa fa-phone"></i> <a href="tel:0788688333">0788.688.333</a> </span>
-                <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 7:00 - 20:00 (Tất Cả Các Ngày Trong Tuần)</span>
+                <span class="date-icon"><i class="fa fa-calendar-plus-o"></i>Sáng: 7:00 - 11:30 Chiều: 13:30 - 20:00</span>
 {{--                <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@company.com</a></span>--}}
             </div>
 
